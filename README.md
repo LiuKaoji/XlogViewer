@@ -1,1 +1,2 @@
 # XlogViewer
+用于查看腾讯云LiteAVSDK和IMSDK生成的Xlog日志
