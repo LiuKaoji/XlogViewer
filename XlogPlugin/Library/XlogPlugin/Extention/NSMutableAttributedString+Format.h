@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)applyAtt:(NSDictionary *)att forRange:(NSRange)range;
 -(void)applyColor:(UIColor *)color forSubString:(NSString *)subStr;
 -(void)applyColor:(UIColor *)color forRange:(NSRange)range;
+-(void)applyFont:(UIFont *)font forRange:(NSRange)range;
 - (NSMutableArray*)calculateSubStringCount:(NSString *)str str:(NSString *)matchStr;
 @end
 

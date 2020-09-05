@@ -13,6 +13,7 @@
 		<string>applicationDidBecomeActive</string>
 		<string>applicationDidEnterBackground</string>
 		<string>AudioSession</string>
+		<string>buffer is full</string>
 	</array>
 	<key>TRTC</key>
 	<array>
@@ -20,7 +21,15 @@
 		<string>EnterRoom</string>
 		<string>RenderDelegate</string>
 		<string>AudioSession</string>
+		<string>startLocalPreview</string>
 		<string>stopPreview</string>
+		<string>muteLocalAudio</string>
+		<string>switchCamera</string>
+		<string>playBGM</string>
+		<string>Publishing</string>
+		<string>SDK Version</string>
+		<string>buffer is full</string>
+		<string>ScreenCapture</string>
 	</array>
 	<key>IM</key>
 	<array>

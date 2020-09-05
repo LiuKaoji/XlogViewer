@@ -2,8 +2,8 @@
 //  Pop.m
 //  XlogPlugin
 //
-//  Created by Damon on 2020/6/26.
-//  Copyright © 2020 Damon. All rights reserved.
+//  Created by Kaoji on 2020/6/26.
+//  Copyright © 2020 Kaoji. All rights reserved.
 //
 
 #import "UIView + pop.h"
@@ -11,7 +11,7 @@
 @implementation UIView (pop)
 -(UIView *)createPopView{
     //背景
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width * 0.8, UIScreen.mainScreen.bounds.size.height * 0.5)];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width * 0.8, UIScreen.mainScreen.bounds.size.height * 0.7)];
     bgView.backgroundColor = [UIColor whiteColor];
     bgView.layer.cornerRadius = 16;
     bgView.layer.masksToBounds = YES;

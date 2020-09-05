@@ -2,8 +2,8 @@
 //  MainView.m
 //  Example
 //
-//  Created by Damon on 2020/6/20.
-//  Copyright © 2020 Damon. All rights reserved.
+//  Created by Kaoji on 2020/6/20.
+//  Copyright © 2020 Kaoji. All rights reserved.
 //
 
 #import "MainView.h"
@@ -34,7 +34,7 @@
     
     GradientView *backgroudAnimationView =  [[GradientView alloc] initWithFrame:self.frame];
     [self addSubview:backgroudAnimationView];
-    [self setTitleArr:@[@"创建日志",@"日志列表",@"沙盒查看"]];
+    [self setTitleArr:@[@"创建日志",@"日志列表",@"沙盒查看"] Images:@[@"create",@"logList",@"disk"]];
     
     _githubBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 45, STATUS_BAR_HEIGHT + 10, 30, 30)];
     [_githubBtn setImage:[UIImage imageNamed:@"github"] forState:UIControlStateNormal];
@@ -50,10 +50,9 @@
     [self addSubview:_versionLabel];
 }
 
-- (void)setTitleArr:(NSArray *)titleArr
-
+- (void)setTitleArr:(NSArray *)titleArr Images:(NSArray *)imagesArr
 {
-    UIView *stackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width *0.4, UIScreen.mainScreen.bounds.size.height *0.5)];
+    UIView *stackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width *0.4, UIScreen.mainScreen.bounds.size.height *0.7)];
     stackView.center = self.center;
     [self addSubview:stackView];
     
@@ -61,18 +60,42 @@
     
     for (int i = 0; i<titleArr.count; i++) {
         
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.tag = OptionTag + i;
-        [btn setTitle:titleArr[i] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(onClickBtn:) forControlEvents:UIControlEventTouchUpInside];
-        [btn setBackgroundColor:[UIColor colorWithRed:113/255  green:113/255 blue:113/255 alpha:0.4]];
-        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont fontWithName:@"Arial-BoldM" size:15];
-        [stackView addSubview:btn];
-        [arrayMut addObject:btn];
+        UIView *containView = [UIView new];
+        containView.tag = OptionTag + i;
+        [containView setBackgroundColor:[UIColor colorWithRed:113/255  green:113/255 blue:113/255 alpha:0.4]];
+        [stackView addSubview:containView];
+        [arrayMut addObject:containView];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            btn.layer.cornerRadius = 10;
+        UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickBtn:)];
+        [containView addGestureRecognizer:tapG];
+        
+        UIImageView *imageView = [UIImageView new];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [imageView setImage:[UIImage imageNamed:imagesArr[i]]];
+        [containView addSubview:imageView];
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.font = [UIFont systemFontOfSize:11];
+        label.text = titleArr[i];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor colorWithWhite:1.0 alpha:0.7];
+        [containView addSubview:label];
+        
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@(stackView.frame.size.width * 0.35));
+            make.centerX.equalTo(containView);
+            make.centerY.equalTo(containView).offset(-8 - label.font.pointSize);
+        }];
+        
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(containView);
+            make.height.equalTo(@(label.font.pointSize));
+            make.centerX.equalTo(containView);
+            make.top.equalTo(imageView.mas_bottom).offset(18);
+        }];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.02 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            containView.layer.cornerRadius = 10;
         });
     }
     
@@ -90,10 +113,10 @@
     }];
 }
 
--(void)onClickBtn:(UIButton *)sender{
+-(void)onClickBtn:(UITapGestureRecognizer *)sender{
     
     if(self.delegate && [self.delegate respondsToSelector:@selector(onClickOption:)]){
-        [self.delegate onClickOption:sender.tag - OptionTag];
+        [self.delegate onClickOption:sender.view.tag - OptionTag];
     }
 }
 

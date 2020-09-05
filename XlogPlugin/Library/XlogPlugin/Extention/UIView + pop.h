@@ -2,8 +2,8 @@
 //  Pop.h
 //  XlogPlugin
 //
-//  Created by Damon on 2020/6/26.
-//  Copyright © 2020 Damon. All rights reserved.
+//  Created by Kaoji on 2020/6/26.
+//  Copyright © 2020 Kaoji. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

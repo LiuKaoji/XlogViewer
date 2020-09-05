@@ -23,6 +23,12 @@
 		65ED516A246440830030ABB3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65ED5169246440830030ABB3 /* Security.framework */; };
 		E409C6F924630D7300A43F56 /* XlogListView.h in Headers */ = {isa = PBXBuildFile; fileRef = E409C6F724630D7300A43F56 /* XlogListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E409C6FA24630D7300A43F56 /* XlogListView.m in Sources */ = {isa = PBXBuildFile; fileRef = E409C6F824630D7300A43F56 /* XlogListView.m */; };
+		E418427824C48C9100557744 /* XlogListCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E418427624C48C9100557744 /* XlogListCell.h */; };
+		E418427924C48C9100557744 /* XlogListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E418427724C48C9100557744 /* XlogListCell.m */; };
+		E418428024C7118A00557744 /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E418427C24C7118A00557744 /* SVSegmentedControl.m */; };
+		E418428124C7118A00557744 /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = E418427D24C7118A00557744 /* SVSegmentedThumb.m */; };
+		E418428224C7118A00557744 /* SVSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = E418427E24C7118A00557744 /* SVSegmentedControl.h */; };
+		E418428324C7118A00557744 /* SVSegmentedThumb.h in Headers */ = {isa = PBXBuildFile; fileRef = E418427F24C7118A00557744 /* SVSegmentedThumb.h */; };
 		E419773924A7188400141502 /* XLogPlugin-prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = E48AC10424946F6D00255EFC /* XLogPlugin-prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
 		E41CA58924A514230032C780 /* UIView + pop.h in Headers */ = {isa = PBXBuildFile; fileRef = E41CA58724A514230032C780 /* UIView + pop.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E41CA58A24A514230032C780 /* UIView + pop.m in Sources */ = {isa = PBXBuildFile; fileRef = E41CA58824A514230032C780 /* UIView + pop.m */; };
@@ -42,6 +48,8 @@
 		E48AC1172494D47D00255EFC /* ICTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = E48AC1102494D47D00255EFC /* ICTextView.h */; };
 		E48AC1182494D47D00255EFC /* ICRangeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = E48AC1112494D47D00255EFC /* ICRangeUtils.h */; };
 		E48AC1192494D47D00255EFC /* ICRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = E48AC1122494D47D00255EFC /* ICRegularExpression.m */; };
+		E4EE81CD24C43208007DD480 /* XlogItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E4EE81CB24C43208007DD480 /* XlogItem.h */; };
+		E4EE81CE24C43208007DD480 /* XlogItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE81CC24C43208007DD480 /* XlogItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,6 +80,12 @@
 		65ED5169246440830030ABB3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		E409C6F724630D7300A43F56 /* XlogListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XlogListView.h; sourceTree = "<group>"; };
 		E409C6F824630D7300A43F56 /* XlogListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XlogListView.m; sourceTree = "<group>"; };
+		E418427624C48C9100557744 /* XlogListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XlogListCell.h; sourceTree = "<group>"; };
+		E418427724C48C9100557744 /* XlogListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XlogListCell.m; sourceTree = "<group>"; };
+		E418427C24C7118A00557744 /* SVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedControl.m; sourceTree = "<group>"; };
+		E418427D24C7118A00557744 /* SVSegmentedThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedThumb.m; sourceTree = "<group>"; };
+		E418427E24C7118A00557744 /* SVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedControl.h; sourceTree = "<group>"; };
+		E418427F24C7118A00557744 /* SVSegmentedThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedThumb.h; sourceTree = "<group>"; };
 		E41CA58724A514230032C780 /* UIView + pop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView + pop.h"; sourceTree = "<group>"; };
 		E41CA58824A514230032C780 /* UIView + pop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView + pop.m"; sourceTree = "<group>"; };
 		E41CA58F24A514A90032C780 /* XLogPlugin.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XLogPlugin.bundle; sourceTree = "<group>"; };
@@ -94,6 +108,8 @@
 		E48AC1102494D47D00255EFC /* ICTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICTextView.h; sourceTree = "<group>"; };
 		E48AC1112494D47D00255EFC /* ICRangeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICRangeUtils.h; sourceTree = "<group>"; };
 		E48AC1122494D47D00255EFC /* ICRegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICRegularExpression.m; sourceTree = "<group>"; };
+		E4EE81CB24C43208007DD480 /* XlogItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XlogItem.h; sourceTree = "<group>"; };
+		E4EE81CC24C43208007DD480 /* XlogItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XlogItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +144,23 @@
 				6566E86D2464E91D0001C07C /* XLogFloatBtn.m */,
 				65CAA05B249714D2004498E6 /* LavWordsView.h */,
 				65CAA05C249714D2004498E6 /* LavWordsView.m */,
+				E4EE81CB24C43208007DD480 /* XlogItem.h */,
+				E4EE81CC24C43208007DD480 /* XlogItem.m */,
+				E418427624C48C9100557744 /* XlogListCell.h */,
+				E418427724C48C9100557744 /* XlogListCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E418427B24C7118A00557744 /* SVSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				E418427C24C7118A00557744 /* SVSegmentedControl.m */,
+				E418427D24C7118A00557744 /* SVSegmentedThumb.m */,
+				E418427E24C7118A00557744 /* SVSegmentedControl.h */,
+				E418427F24C7118A00557744 /* SVSegmentedThumb.h */,
+			);
+			path = SVSegmentedControl;
 			sourceTree = "<group>";
 		};
 		E41CA58B24A514380032C780 /* Extention */ = {
@@ -178,6 +209,7 @@
 		E44A139D2457301C00126329 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				E418427B24C7118A00557744 /* SVSegmentedControl */,
 				E48AC10B2494D47D00255EFC /* ICTextView */,
 				6566E88124652DCE0001C07C /* ZipArchive.framework */,
 				E44A139F2457301C00126329 /* OpenSSL.framework */,
@@ -222,9 +254,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E418428224C7118A00557744 /* SVSegmentedControl.h in Headers */,
 				E419773924A7188400141502 /* XLogPlugin-prefix.pch in Headers */,
 				E41CA58924A514230032C780 /* UIView + pop.h in Headers */,
 				6579A6A52463D4CB005D203D /* XLogFloatBtn.h in Headers */,
+				E4EE81CD24C43208007DD480 /* XlogItem.h in Headers */,
 				E48AC1142494D47D00255EFC /* ICRegularExpression.h in Headers */,
 				E409C6F924630D7300A43F56 /* XlogListView.h in Headers */,
 				65C95EAE246273960012AB6C /* XLogViewer.h in Headers */,
@@ -234,6 +268,8 @@
 				E48AC1172494D47D00255EFC /* ICTextView.h in Headers */,
 				E44A13972457300600126329 /* XlogPlugin.h in Headers */,
 				65CAA05D249714D2004498E6 /* LavWordsView.h in Headers */,
+				E418427824C48C9100557744 /* XlogListCell.h in Headers */,
+				E418428324C7118A00557744 /* SVSegmentedThumb.h in Headers */,
 				E48AC1132494D47D00255EFC /* ICPreprocessor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,7 +307,7 @@
 				TargetAttributes = {
 					E44A13912457300600126329 = {
 						CreatedOnToolsVersion = 11.3.1;
-						LastSwiftMigration = 1130;
+						LastSwiftMigration = 1200;
 					};
 				};
 			};
@@ -316,10 +352,14 @@
 				6566E86E2464E91D0001C07C /* XLogFloatBtn.m in Sources */,
 				E48AC1162494D47D00255EFC /* ICTextView.m in Sources */,
 				E409C6FA24630D7300A43F56 /* XlogListView.m in Sources */,
+				E418428124C7118A00557744 /* SVSegmentedThumb.m in Sources */,
 				65CAA05E249714D2004498E6 /* LavWordsView.m in Sources */,
 				656F93312462D6F00012978E /* NSMutableAttributedString+Format.m in Sources */,
+				E4EE81CE24C43208007DD480 /* XlogItem.m in Sources */,
+				E418428024C7118A00557744 /* SVSegmentedControl.m in Sources */,
 				E48AC1192494D47D00255EFC /* ICRegularExpression.m in Sources */,
 				E48AC1152494D47D00255EFC /* ICRangeUtils.m in Sources */,
+				E418427924C48C9100557744 /* XlogListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +489,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.6;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F9E6VPNRYT;
@@ -473,6 +514,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/XlogPlugin/3rd/MLeaksFinder",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogPlugin;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -490,6 +532,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.6;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F9E6VPNRYT;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -513,6 +556,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/XlogPlugin/3rd/MLeaksFinder",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogPlugin;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

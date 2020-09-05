@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIToolbar *toolBar;//
 @property (nonatomic, strong) NSMutableAttributedString *logAtt;//日志富文本
 @property (nonatomic, assign) XLOG_TYPE logType;//日志富文本
+@property (nonatomic, assign) CGFloat keyBoardHeight;//键盘a高度
 @end
 
 @implementation XLogViewer
@@ -28,7 +29,7 @@
 @synthesize textView = _textView;
 @synthesize toolBar = _toolBar;
 
--(void)setXlogURL:(NSString *)url{
+-(void)setXlogItemPath:(NSString *)url{
     _logPath = url;
 }
 
@@ -56,6 +57,9 @@
     BOOL isTimLog = [_logAtt.string containsString:@"TIM:"];
     _logType = isTimLog ?XLOG_TYPE_IM:XLOG_TYPE_LAV;
     isTimLog ?[self formatIMLogAndPreView]:[self formatLAVLogAndPreView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardAction:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardAction:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 -(void)setupUI{
@@ -64,7 +68,7 @@
     
     //与导航栏宽高一致
     UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, TOP_LAYOUT_GUIDE)];
-    topView.backgroundColor = [UIColor whiteColor];
+    topView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.8];
     [self.view addSubview:topView];
     
     //关闭按钮
@@ -152,6 +156,7 @@
 
 -(void)formatLAVLogAndPreView{
     
+    //[_logAtt applyFont:[UIFont systemFontOfSize:30] forRange:[_logAtt.string rangeOfString:_logAtt.string]];
     [_logAtt applyColor:[UIColor whiteColor] forSubString:_logAtt.string];
     [_logAtt applyColor:[UIColor systemPinkColor] forSubString:@"~~~~~ begin of mmap ~~~~~"];
     [_logAtt applyColor:[UIColor systemPinkColor] forSubString:@"~~~~~ end of mmap ~~~~~"];
@@ -160,14 +165,21 @@
     
     
     NSMutableAttributedString *breakChar = [[NSMutableAttributedString alloc] initWithString:@"\n"];
-    for (NSInteger i = 0; i<exMatch_I.count -1; i++) {
-        [_logAtt insertAttributedString:breakChar atIndex:[exMatch_I[i] integerValue] + i];
+    if(exMatch_I.count){
+        for (NSInteger i = 0; i<exMatch_I.count -1; i++) {
+            [_logAtt insertAttributedString:breakChar atIndex:[exMatch_I[i] integerValue] + i];
+        }
     }
     
+    
+    
     NSMutableArray *exMatch_E = [_logAtt calculateSubStringCount:_logAtt.string str:@"[E]"];
-    for (NSInteger i = 0; i<exMatch_E.count -1; i++) {
-         [_logAtt insertAttributedString:breakChar atIndex:[exMatch_E[i] integerValue] + i];
+    if(exMatch_E.count){
+        for (NSInteger i = 0; i<exMatch_E.count -1; i++) {
+            [_logAtt insertAttributedString:breakChar atIndex:[exMatch_E[i] integerValue] + i];
+        }
     }
+    
     
     //第二次高亮时间颜色,需要重新计算 加了空格位置变了
     exMatch_I = [_logAtt calculateSubStringCount:_logAtt.string str:@"[I]"];
@@ -175,15 +187,22 @@
     
     UIColor *formatColor  = [UIColor greenColor];
     
-    for (NSNumber * location in exMatch_I){
-        NSRange range = NSMakeRange([location integerValue], 3);
-        [_logAtt applyColor:formatColor forRange:NSMakeRange(range.location, 54)];
+    if(exMatch_I.count){
+        for (NSNumber * location in exMatch_I){
+            NSRange range = NSMakeRange([location integerValue], 3);
+            [_logAtt applyColor:formatColor forRange:NSMakeRange(range.location, 54)];
+        }
+        
     }
     
-    for (NSNumber * location in exMatch_E){
-        NSRange range = NSMakeRange([location integerValue], 3);
-        [_logAtt applyColor:formatColor forRange:NSMakeRange(range.location, 54)];
+    if(exMatch_E.count){
+        for (NSNumber * location in exMatch_E){
+            NSRange range = NSMakeRange([location integerValue], 3);
+            [_logAtt applyColor:formatColor forRange:NSMakeRange(range.location, 54)];
+        }
     }
+    
+    
     
     _textView.attributedText = _logAtt;
 }
@@ -287,7 +306,7 @@
 
 #pragma mark - Keyboard
 
-- (void)updateTextViewInsetsWithKeyboardNotification:(NSNotification *)notification
+- (void)keyboardAction:(NSNotification *)notification
 {
     UIEdgeInsets newInsets = UIEdgeInsetsZero;
     newInsets.top = self.searchBar.frame.size.height;
@@ -302,5 +321,10 @@
     ICTextView *textView = self.textView;
     textView.contentInset = newInsets;
     textView.scrollIndicatorInsets = newInsets;
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 @end

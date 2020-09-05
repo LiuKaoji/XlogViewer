@@ -42,6 +42,13 @@
     }
 }
 
+-(void)applyFont:(UIFont *)font forRange:(NSRange)range{
+    
+    if(range.location != NSNotFound){
+        [self  setAttributes:@{NSFontAttributeName:font} range:range];
+    }
+}
+
 //利用朴素算法进行字符串匹配
 - (NSMutableArray*)calculateSubStringCount:(NSString *)str str:(NSString *)matchStr {
      //在str中搜索matchStr并返回matchStr下标

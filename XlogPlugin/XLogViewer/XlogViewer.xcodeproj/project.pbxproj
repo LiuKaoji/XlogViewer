@@ -42,6 +42,7 @@
 		E44A13C72457CFAA00126329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44A13C52457CFAA00126329 /* LaunchScreen.storyboard */; };
 		E44A13CA2457CFAA00126329 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E44A13C92457CFAA00126329 /* main.m */; };
 		E48AC11C24960FC300255EFC /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = E48AC11B24960FC300255EFC /* GradientView.m */; };
+		E4B9BA282503718D00A35582 /* case.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E4B9BA272503718D00A35582 /* case.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +133,7 @@
 		E4364866249E5FD600423BEB /* MainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
 		E4364867249E5FD600423BEB /* MainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
 		E4364869249E620C00423BEB /* XlogViewer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XlogViewer-Prefix.pch"; sourceTree = "<group>"; };
-		E44A13B42457CFA900126329 /* XlogViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XlogViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E44A13B42457CFA900126329 /* Xlog工具.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xlog工具.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44A13B72457CFA900126329 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E44A13B82457CFA900126329 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E44A13BD2457CFA900126329 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -143,6 +144,7 @@
 		E44A13C92457CFAA00126329 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E48AC11A24960FC300255EFC /* GradientView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
 		E48AC11B24960FC300255EFC /* GradientView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		E4B9BA272503718D00A35582 /* case.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = case.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 		E436486A249E664100423BEB /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				E4B9BA272503718D00A35582 /* case.mp4 */,
 				E44A13C82457CFAA00126329 /* Info.plist */,
 				65E97BF524581FBD00CBA30A /* test.xlog */,
 				E4364869249E620C00423BEB /* XlogViewer-Prefix.pch */,
@@ -299,7 +302,7 @@
 		E44A13B52457CFA900126329 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E44A13B42457CFA900126329 /* XlogViewer.app */,
+				E44A13B42457CFA900126329 /* Xlog工具.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -347,7 +350,7 @@
 			);
 			name = XlogViewer;
 			productName = Example;
-			productReference = E44A13B42457CFA900126329 /* XlogViewer.app */;
+			productReference = E44A13B42457CFA900126329 /* Xlog工具.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -404,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65E97BEF2458179D00CBA30A /* SandBoxPreviewTool.bundle in Resources */,
+				E4B9BA282503718D00A35582 /* case.mp4 in Resources */,
 				65E97BF624581FBD00CBA30A /* test.xlog in Resources */,
 				E44A13C72457CFAA00126329 /* LaunchScreen.storyboard in Resources */,
 				E44A13C42457CFAA00126329 /* Assets.xcassets in Resources */,
@@ -584,7 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.5;
+				CURRENT_PROJECT_VERSION = 1.2.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9E6VPNRYT;
 				GCC_PREFIX_HEADER = "$SRCROOT/XlogViewer/Others/XlogViewer-Prefix.pch";
@@ -599,9 +603,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/XlogViewer/3rd/MLeaksFinder",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogViewer;
-				PRODUCT_NAME = XlogViewer;
+				PRODUCT_NAME = "Xlog工具";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e";
 			};
@@ -612,7 +616,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.5;
+				CURRENT_PROJECT_VERSION = 1.2.1;
 				DEVELOPMENT_TEAM = F9E6VPNRYT;
 				GCC_PREFIX_HEADER = "$SRCROOT/XlogViewer/Others/XlogViewer-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
@@ -626,9 +630,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/XlogViewer/3rd/MLeaksFinder",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogViewer;
-				PRODUCT_NAME = XlogViewer;
+				PRODUCT_NAME = "Xlog工具";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e";
 			};

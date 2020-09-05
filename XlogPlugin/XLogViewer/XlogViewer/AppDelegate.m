@@ -39,7 +39,7 @@
 
 
 @interface AppDelegate ()
-
+@property(nonatomic,strong)MainViewController *mainVC;
 @end
 
 @implementation AppDelegate
@@ -47,13 +47,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _mainVC = [MainViewController new];
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [_window setRootViewController:[[UINavigationController alloc]initWithRootViewController:[MainViewController new]]];
+    [_window setRootViewController:[[UINavigationController alloc]initWithRootViewController:_mainVC]];
     [_window makeKeyAndVisible];
+    [self checkLogPath];
     [self setupXlogPlugin];
+    sleep(1.0);
     return YES;
 }
 
+-(void)checkLogPath{
+    
+    //获取Document文件
+    NSString * docsdir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString * rarFilePath = [docsdir stringByAppendingPathComponent:@"log"];//将需要创建的串拼接到后面
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDir = NO;
+    if (![fileManager fileExistsAtPath:rarFilePath isDirectory:&isDir]) {//如果文件夹不存在
+        [fileManager createDirectoryAtPath:rarFilePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+}
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
     //从其他App接收Xlog文件 同名覆盖原则
@@ -77,9 +91,9 @@
         BOOL isSuccess = [fileManager copyItemAtPath:path toPath:filePath error:nil];
         if (isSuccess == YES) {
             NSLog(@"拷贝成功");
-            [MBProgressHUD showSuccessMessage:@"拷贝成功"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"REV_XLOG" object:filePath];
         } else {
-            [MBProgressHUD showSuccessMessage:@"拷贝失败"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"REV_XLOG_ERROR" object:nil];
         }
     }
     //如果不删除会在Documents Inbox下面残留
@@ -92,9 +106,14 @@
 -(void)setupXlogPlugin{
     [[XlogManager shared] setupWithStatus:^{
         NSLog(@"XlogPlugin初始化:%@",[XlogManager shared].xStatus == XLOG_STATUS_OK ?@"成功":@"失败");
+        
+        __weak typeof(self) weakSelf = self;
         if([XlogManager shared].xStatus == XLOG_STATUS_OK){
-            [[XlogManager shared] showFloatButton];
-        }else{
+            [[XlogManager shared] showFloatButtonInView:weakSelf.mainVC.view];
+        }else if (XlogManager.shared.xStatus == XLOG_STATUS_DecodedError){
+            [MBProgressHUD showErrorMessage:[NSString stringWithFormat:@"解码失败(%zd)",[XlogManager shared].xStatus]];
+        }
+        else{
             [MBProgressHUD showErrorMessage:[NSString stringWithFormat:@"发生错误(%zd)",[XlogManager shared].xStatus]];
         }
     }];

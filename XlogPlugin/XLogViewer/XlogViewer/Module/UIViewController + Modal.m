@@ -2,8 +2,8 @@
 //  UIViewController.m
 //  XlogViewer
 //
-//  Created by Damon on 2020/6/27.
-//  Copyright © 2020 Damon. All rights reserved.
+//  Created by Kaoji on 2020/6/27.
+//  Copyright © 2020 Kaoji. All rights reserved.
 //
 
 #import "UIViewController + Modal.h"
