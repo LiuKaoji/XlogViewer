@@ -20,7 +20,8 @@ https://apps.apple.com/cn/app/xlog%E5%B7%A5%E5%85%B7/id1520918029
 
 ### 使用
 
-直接将xlog日志拖拽到界面,会在日志当前目录生成.log解密文件
+1.编译源码framework 植入SDK查看
+2.通过文件共享导入至app查看
 
 ## SDK日志
 https://cloud.tencent.com/developer/article/1505242
