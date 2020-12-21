@@ -68,7 +68,7 @@
     
     //与导航栏宽高一致
     UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, TOP_LAYOUT_GUIDE)];
-    topView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.8];
+    topView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
     [self.view addSubview:topView];
     
     //关闭按钮

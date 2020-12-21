@@ -34,7 +34,7 @@
     
     GradientView *backgroudAnimationView =  [[GradientView alloc] initWithFrame:self.frame];
     [self addSubview:backgroudAnimationView];
-    [self setTitleArr:@[@"创建日志",@"日志列表",@"沙盒查看"] Images:@[@"create",@"logList",@"disk"]];
+    [self setTitleArr:@[@"创建日志",@"日志列表",@"文件查看"] Images:@[@"create",@"logList",@"disk"]];
     
     _githubBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 45, STATUS_BAR_HEIGHT + 10, 30, 30)];
     [_githubBtn setImage:[UIImage imageNamed:@"github"] forState:UIControlStateNormal];

@@ -47,6 +47,7 @@
            //沙盒查看
            [[SandBoxPreviewTool sharedTool] autoOpenCloseApplicationDiskDirectoryPanel];
        }
+
 }
 
 //检查日志目录

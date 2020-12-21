@@ -588,7 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2.1;
+				CURRENT_PROJECT_VERSION = 1.3.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9E6VPNRYT;
 				GCC_PREFIX_HEADER = "$SRCROOT/XlogViewer/Others/XlogViewer-Prefix.pch";
@@ -603,7 +603,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/XlogViewer/3rd/MLeaksFinder",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogViewer;
 				PRODUCT_NAME = "Xlog工具";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -616,7 +616,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2.1;
+				CURRENT_PROJECT_VERSION = 1.3.1;
 				DEVELOPMENT_TEAM = F9E6VPNRYT;
 				GCC_PREFIX_HEADER = "$SRCROOT/XlogViewer/Others/XlogViewer-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
@@ -630,7 +630,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/XlogViewer/3rd/MLeaksFinder",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogViewer;
 				PRODUCT_NAME = "Xlog工具";
 				TARGETED_DEVICE_FAMILY = 1;

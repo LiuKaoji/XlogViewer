@@ -18,7 +18,11 @@
 	<key>TRTC</key>
 	<array>
 		<string>sdkappid</string>
+		<string>trtc_api</string>
 		<string>EnterRoom</string>
+		<string>Timeout</string>
+		<string>roomId</string>
+		<string>video playback stuck</string>
 		<string>RenderDelegate</string>
 		<string>AudioSession</string>
 		<string>startLocalPreview</string>

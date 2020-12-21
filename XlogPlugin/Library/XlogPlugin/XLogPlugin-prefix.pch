@@ -17,19 +17,23 @@
 #define FloatBtnTag 111222333444
 
 //设备判断与约束
-#define isIPhoneX_Xs ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-#define isIPhoneXR ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
-#define isIPhoneXsMax ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
-#define isBangsDevice ((isIPhoneX_Xs || isIPhoneXR || isIPhoneXsMax) ? YES:NO)
+#define isBangsDevice ({\
+BOOL isBangsScreen = NO; \
+if (@available(iOS 11.0, *)) { \
+UIWindow *window = [[UIApplication sharedApplication].windows firstObject]; \
+isBangsScreen = window.safeAreaInsets.bottom > 0; \
+} \
+isBangsScreen; \
+})
 
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define STATUS_BAR_HEIGHT ((isIPhoneX_Xs || isIPhoneXR || isIPhoneXsMax) ? 44.0 : 20.0)
+#define STATUS_BAR_HEIGHT (isBangsDevice ? 44.0 : 20.0)
 #define NAVIGATION_BAR_HEIGHT 44.0
 #define TOP_LAYOUT_GUIDE (STATUS_BAR_HEIGHT + NAVIGATION_BAR_HEIGHT)
 #define BOTTOM_LAYOUT_GUIDE (isBangsDevice ? 34.0 : 0.0)
 #define SAFE_HEIGHT (SCREEN_HEIGHT-TOP_LAYOUT_GUIDE-BOTTOM_LAYOUT_GUIDE)
 #define DEVICE_VERSION [[[UIDevice currentDevice] systemVersion] integerValue]
-#define TabBarHeight ((isIPhoneX_Xs || isIPhoneXR || isIPhoneXsMax) ? 83.0 : 49.0)
+#define TabBarHeight (isBangsDevice ? 83.0 : 49.0)
 
 #define SCREENHEIGHT [[UIScreen mainScreen] bounds].size.height
 #define SCREENWIDTH [[UIScreen mainScreen] bounds].size.width
